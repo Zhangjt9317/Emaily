@@ -8,13 +8,21 @@
     "npm": "5.0.3"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
-    "express": "^4.17.1"
+    "cookie-session": "^1.4.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.8",
+    "nodemon": "^2.0.6",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "redis": "^3.0.2"
   }
 }
