@@ -6,6 +6,7 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI);
@@ -24,8 +25,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
+
 
 // if no route found in the above 2 routes ==> require()(app),
 // use the followings
