@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const bodyParser = require('body-parser');
 
 require('./models/User');
 require('./services/passport');
@@ -11,6 +12,7 @@ mongoose.connect(keys.mongoURI);
 
 const app = express();
 
+app.use(bodyParser.json());
 app.use(
     // use cookie key and maxAge to define a cookiesession
     cookieSession({
@@ -23,6 +25,24 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/authRoutes')(app);
+require('./routes/billingRoutes')(app);
+
+// if no route found in the above 2 routes ==> require()(app),
+// use the followings
+if (process.env.NODE_ENV === 'production') {
+    // Express will serve up production assets
+    // like main.js file or main.css file
+    app.use(express.static('client/build'));
+
+    // Express will serve up index.html file
+    // if it does not recognize the route
+    const path = require('path');
+    app.get('*', (req, res) => {
+        res.sendFile(
+            path.resolve(__dirname, 'client', 'build', 'index.html')
+        )
+    })
+}
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);

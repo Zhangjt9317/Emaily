@@ -4,4 +4,6 @@ module.exports = {
     googleClientSecret: 'CiG3UQVdxPngsO1HZSF_gX29',
     mongoURI: 'mongodb+srv://dbUser:zjtsam931124@emaily.gsfk5.mongodb.net/emaily?retryWrites=true&w=majority',
     cookieKey: 'iajsdflnaslgf',
+    stripePublishableKey: 'pk_test_51I3eLQIHnuYgna01ZrwQ7VS2LBTfh7Whk1PpQVpXV50HVJPue4itq12y98uOLGgqDN5KBloAJ78x9MgE6ChQ5mCJ00L73Y96CF',
+    stripeSecretKey: 'sk_test_51I3eLQIHnuYgna01oANXu9eChVa6k3tdFwnnbPEdyGxiudcGNCkZPVuz31SiZlohSfX0Gq7CIHpiZ5e8Y20xVj2v00BAxpsCDe',
 };

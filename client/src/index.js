@@ -1,17 +1,25 @@
+import 'materialize-css/dist/css/materialize.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import {Provider} from 'react-redux';
+import {createStore, applyMiddleware} from "redux";
+import reduxThunk from 'redux-thunk';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+import reducers from './reducers';
+import App from "./components/App";
+
+
+// dummy store
+const store = createStore(
+    reducers,
+    {},
+    applyMiddleware(reduxThunk)
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(
+    <Provider store={store}><App/></Provider>,
+    document.querySelector('#root')
+);
+
+console.log('STRIPE KEY IS ', process.env.REACT_APP_STRIPE_KEY);
+console.log('Environment is ', process.env.NODE_ENV);
