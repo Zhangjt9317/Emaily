@@ -6,4 +6,9 @@ module.exports = {
     cookieKey: 'iajsdflnaslgf',
     stripePublishableKey: 'pk_test_51I3eLQIHnuYgna01ZrwQ7VS2LBTfh7Whk1PpQVpXV50HVJPue4itq12y98uOLGgqDN5KBloAJ78x9MgE6ChQ5mCJ00L73Y96CF',
     stripeSecretKey: 'sk_test_51I3eLQIHnuYgna01oANXu9eChVa6k3tdFwnnbPEdyGxiudcGNCkZPVuz31SiZlohSfX0Gq7CIHpiZ5e8Y20xVj2v00BAxpsCDe',
+    sendgridKey: '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',
+    redirectDomain: process.env.REDIRECT_DOMAIN,
 };
+
+
+// sendgridKey: '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',
